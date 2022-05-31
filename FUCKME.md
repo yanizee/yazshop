@@ -1,2 +1,0 @@
-# yazshop
-du spast
