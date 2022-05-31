@@ -1,0 +1,53 @@
+{% extends "base.html"%}
+{% load static%}
+
+{%block extra_head%}
+<link rel="stylesheet" type="text/css" href="{%static '/css/comparison.css' %}"/>
+{% endblock %}
+{% block content%}
+
+<div class="container mt-5">
+
+
+
+<div class="pricingdiv">
+	<ul class="theplan">
+		<li class="title">Standard Licence </li>
+		<li><span style="font-weight: bold">Files:</span> MP3, WAV on demand</li>
+		<li><span style="font-weight: bold">Permission:</span> Use for radio broadcast, paid performances, TV, websites, ringtones, music videos etc</li>
+
+		<li><span style="font-weight: bold">Restrictions:</span> Sell your songs for up to 5000 copies for album profit or internet download in either combination or you keep all earnings</li>
+        <li><span style="font-weight: bold">STEM Files: </span><span class="icon-close"></span></li>
+        <li><span style="font-weight: bold">Exclusively: </span><span class="icon-close"></span></li>
+
+		<li><span style="font-weight: lighter"> Please credit me in description  </span></li>
+	</ul>
+	<ul class="theplan">
+		<li class="title">Premium Lease</li>
+
+		<li><span style="font-weight: bold">Files:</span> MP3, WAV on demand</li>
+		<li><span style="font-weight: bold">Permission:</span> Use for radio broadcast, paid performances, TV, websites, ringtones, music videos etc</li>
+
+		<li><span style="font-weight: bold">Restrictions:</span> Sell your songs for up to 15000 copies for album profit or internet download in either combination or you keep all earnings</li>
+        <li><span style="font-weight: bold">STEM Files: </span><span class="icon-close"></span></li>
+        <li><span style="font-weight: bold">Exclusively: </span><span class="icon-close"></span></li>
+        <li><span style="font-weight: lighter"> Please credit me in description  </span>   </li>
+
+		{% comment %} <li><a class="pricebutton" href="http://ergonomictrends.com/best-ergonomic-office-chairs-2017-reviews-buyers-guide/" target="_blank" rel="nofollow"><span class="icon-tag"></span> Check Out</a></li> {% endcomment %}
+		</ul>
+	<ul class="theplan">
+        <li class="title">Exclusive Licence</li>
+		<li><span style="font-weight: bold">Files:</span> MP3, WAV on demand</li>
+		<li><span style="font-weight: bold">Permission:</span> Use for radio broadcast, paid performances, TV, websites, ringtones, music videos etc</li>
+
+		<li><span style="font-weight: bold">Restrictions:</span> None! Lets you own the beat and all incomes. Beat will be removed from this website as soon as possible.</li>
+        <li><span style="font-weight: bold">STEM Files: </span><span class="icon-check"></span></li>
+        <li><span style="font-weight: bold">Exclusively: </span><span class="icon-check"></span></li>
+        <li><span style="font-weight: lighter"> Please credit me in description  </span>   </li>
+		{% comment %} <li><a class="pricebutton" href="http://ergonomictrends.com/best-ergonomic-office-chairs-2017-reviews-buyers-guide/" target="_blank" rel="nofollow"><span class="icon-tag"></span> Check Out</a></li> {% endcomment %}
+	</ul>
+</div>
+
+
+</div>
+{% endblock%}

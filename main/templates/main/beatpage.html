@@ -1,0 +1,69 @@
+{% block content %}
+<section class="text-center mb-4" id="beatpage">
+
+    <!--Grid row-->
+    <div class="container" id="beatbox" style="padding:5rem 3rem 10rem;">
+
+      <table class="table table-hover" id="beattabelle">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>      
+            <th scope="col"></th>      
+            <th scope="col">Name</th>
+            
+            <th scope="col">Bpm</th>
+            <th scope="col">Key</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          
+          {% for item in object_list %}
+          {% if item.beat.category == "Beat" %}
+          
+          <tr>     
+          {% comment %} <th scope="row"><a href="{{beat.get_absolute_url}}">{{beat.pk}}</a></th> {% endcomment %}
+          <td><a href="/add-to-cart/{{item.slug}}/" class="btn btn-primary btn-md my-0 p" id="add_to_cart_button">Add to cart
+          <i class="fas fa-shopping-cart ml-1"></i>
+          <td>{{item.price}} €</td>
+          <td><audio controls controlsList="nodownload noplaybackrate" preload="metadata">
+            <source src="{{item.beat.file}}" type="audio/mpeg"  autoplay="False"></audio>
+            <source src="{{item.beat.file}}" type="audio/ogg"  autoplay="False"></audio>
+          </td>
+          <td>{{item.title}}</td>
+
+          <td>{{item.beat.bpm}}</td>
+          <td>{{item.beat.key}}</td>
+          
+          {% comment %} <td><a href="{{item.get_absolute_url}}">{{item.beat.key}}</a></td> {% endcomment %}
+
+        </tr>
+
+        {% endif %}
+        {%endfor%} 
+      
+        </tbody>
+        </table>
+
+    </div>
+  </section>
+{% endblock %}
+
+
+{% block js%}
+
+<script type="text/javascript">
+$(function(){
+  $("audio").on("play", function() {
+      $("audio").not(this).each(function(index, audio) {
+          audio.pause();
+      });
+  });
+});
+</script>
+
+{%endblock %}
+  <!--Section: Products Beats-->
+

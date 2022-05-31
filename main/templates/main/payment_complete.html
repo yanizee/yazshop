@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+
+
+
+<div class="container mt-5 mb-5">
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card">
+
+
+                    <div class="text-left logo p-2 px-5">
+
+                        <img src="{% static 'img/Banner/Logoclean.png'%}" width="50">
+                        
+
+                    </div>
+
+                    <div class="invoice p-5">
+
+                        <h5>Order Confirmed!</h5>
+
+                        <span class="font-weight-bold d-block mt-4">Hello, {% if request.user.is_authenticated %} {{user|title}} {% else %} unknown user {% endif %}!</span>
+                        <span>Your items are ready to download!</span>
+
+                        <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
+
+                            <table class="table table-borderless">
+                                
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="py-2">
+
+                                                <span class="d-block text-muted">Order Date</span>
+                                            <span>{{order.ordered_date}}</span>
+                                                
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="py-2">
+
+                                                <span class="d-block text-muted">Order No</span>
+                                            <span>1031{{order.pk}}</span>
+                                                
+                                            </div>
+                                        </td>
+
+                                        {% comment %} <td>
+                                            <div class="py-2">
+
+                                                <span class="d-block text-muted">Payment</span>
+                                            <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span>
+                                                
+                                            </div>
+                                        </td> {% endcomment %}
+
+                                        {% comment %} <td>
+                                            <div class="py-2">
+
+                                                <span class="d-block text-muted">Shiping Address</span>
+                                            <span>414 Advert Avenue, NY,USA</span>
+                                                
+                                            </div>
+                                        </td> {% endcomment %}
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+
+
+
+                            
+                        </div>
+
+
+
+
+                            <div class="product border-bottom table-responsive">
+
+                                <table class="table table-borderless">
+
+                                <tbody>
+                                    {% for item in objects %}
+                                    <tr>
+                                        <td width="20%">
+                                        
+                                        {% if item.item.pack.category == "Pack" %}
+                                        <img src="{{BASE_DIR}}/{{item.item.pack.image}}" width="90">
+                                        {% else %}
+                                        <h4>BEAT</h4>
+                                        {% endif %}
+
+                                    </td>
+                                
+                                    <td width="40%">
+                                        <span class="font-weight-bold">{{ item.item.title }}</span>
+                                        <div class="product-qty">
+                                            <span class="d-block">x{{item.quantity}}</span>
+                                            <span></span>
+                                            
+                                        </div>
+                                    </td>
+                                    <td width="20%">
+                                        {% if item.item.pack.category == "Pack" %}
+                                        <a href="{{item.item.pack.file.url}}" download class="btn btn-outline-success">
+                                        {% else %}
+                                        <a href="{{item.item.beat.file.url}}" download class="btn btn-outline-success">
+                                        {% endif %}
+                                        <span class="font-weight-bold">Download</span>
+                                        </a>
+                                    </td>
+                                    <td width="20%">
+                                        <div class="text-right">
+                                            <span class="font-weight-bold">${{item.get_final_price}}</span>
+                                        </div>
+                                    </td>
+
+                                    </tr>
+
+                                    {% endfor %}
+
+                                </tbody> 
+                                    
+                                </table>
+                                
+
+
+                            </div>
+
+
+
+                            <div class="row d-flex justify-content-end">
+
+                                <div class="col-md-5">
+
+                                    <table class="table table-borderless">
+
+                                        <tbody class="totals">
+
+                                            {% comment %} <tr>
+                                                <td>
+                                                    <div class="text-left">
+
+                                                        <span class="text-muted">Subtotal</span>
+                                                        
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <span>$168.50</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                             <tr>
+                                                <td>
+                                                    <div class="text-left">
+
+                                                        <span class="text-muted">Shipping Fee</span>
+                                                        
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <span>$22</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                             <tr>
+                                                <td>
+                                                    <div class="text-left">
+
+                                                        <span class="text-muted">Tax Fee</span>
+                                                        
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <span>$7.65</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                             <tr>
+                                                <td>
+                                                    <div class="text-left">
+
+                                                        <span class="text-muted">Discount</span>
+                                                        
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <span class="text-success">$168.50</span>
+                                                    </div>
+                                                </td>
+                                            </tr> {% endcomment %}
+
+
+                                             <tr class="border-top border-bottom">
+                                                <td>
+                                                    <div class="text-left">
+
+                                                        <span class="font-weight-bold">Total</span>
+                                                        
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <span class="font-weight-bold">${{order.get_total}}</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                        
+                                    </table>
+                                    
+                                </div>
+                                
+
+
+                            </div>
+
+
+                            {% comment %} <p>We will be sending shipping confirmation email when the item shipped successfully!</p> {% endcomment %}
+                            <p class="font-weight-bold mb-0">Thanks for your trust!</p>
+                            <span>Yannic</span>
+
+
+
+                        
+
+                    </div>
+
+
+                    <div class="d-flex justify-content-between footer p-3">
+
+                        <span>Back to  <a href="{%url 'home'%}"> startpage</a></span>
+                         <span>{{date}}</span>
+                        
+                    </div>
+
+
+
+        
+    </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% comment %} {% extends "base.html" %} {% endcomment %}
+{% load static%}
+{% load cart_template_tags %}
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container" id="navbar_container">
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="{%url 'home'%}">
+        <img src="{% static 'img/Banner/Logoclean.png'%}" style="height:35px;width:35px" alt="logo">
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'about'%}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'licences'%}">Licences</a>
+          </li>
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item"> 
+              <span class="nav-link waves-effect mr-5"> Welcome {{user|title}} ! </span>
+              {% comment %} <span class="dropdown-menu"> Welcome {{user|title}} ! </span> {% endcomment %}
+            
+            </li>
+
+          <li class="nav-item">
+            <a href="{% url "order-summary"%}"class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"> {{request.user|cart_item_count}} </span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url "account_logout"%}"class="nav-link waves-effect">
+                <span class="clearfix d-none d-sm-inline-block"> Logout </span>
+              </a>
+              </li>
+              
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url "account_login"%}"class="nav-link waves-effect">
+              <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+            </li>
+          <li class="nav-item">
+            <a href="{% url "account_signup"%}"class="nav-link waves-effect">
+              <span class="clearfix d-none d-sm-inline-block"> Signup </span>
+            </a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+            <a href="https://www.instagram.com/yazprd/" class="nav-link waves-effect" target="_blank">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://twitter.com/yazfromthemars" class="nav-link waves-effect" target="_blank">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.youtube.com/channel/UC7RKd8Vt79BAJTADYg9xW0g" class="nav-link waves-effect" target="_blank">
+              <i class="fab fa-youtube fa-2x"></i> 
+            </a>
+          </li>
+          <li>
+            <a href="https://soundcloud.com/yazforever" class="nav-link waves-effect" target="_blank">
+              <i class="fab fa-soundcloud fa-2x"></i> 
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->

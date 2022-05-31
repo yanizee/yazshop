@@ -1,0 +1,91 @@
+<section class="text-center mb-4" id="packpage">
+
+    <!--Grid row-->
+    {% comment %} {% include "main/carousel.html" %} {% endcomment %}
+    <div class="row wow fadeIn" id="arsch">
+
+      <!--Grid column-->
+
+      {% for item in object_list %}
+      {% if item.pack.category == "Pack" %}
+      <div class="mb-1 " id="pack1">
+
+        <!--Card-->
+        
+        <div class="card px-3 py-3 m-4">
+          
+          <!--Card image-->
+          
+          <div class="view overlay">
+            
+
+            
+            <img src="{{item.pack.image}}" class="card-img-top" alt="">
+              
+            <a href= "{{item.get_absolute_url}}">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+
+          </div>
+          <!--Card image-->
+          
+
+
+
+
+          <!--Card content-->
+          <div class="card-body text-center">
+            <!--Category & Title-->
+            <a href="" class="grey-text">
+              <h5></h5>
+            </a>
+            <h5>
+              <strong>
+                <a href="{{item.get_absolute_url}}" class="dark-grey-text">{{item.title}}
+                  <span class="badge badge-pill danger-color">{{item.beat.category}}</span>
+                </a>
+              </strong>
+            </h5>
+            {% if item.discount_price %}
+            <h4 class="font-weight-bold blue-text">
+              <del>{{item.discount_price}}$</del>
+            </h4>
+            {% endif %}
+            <h4 class="font-weight-bold blue-text">
+              <strong>{{item.price}}$</strong>
+            </h4>
+            
+
+          </div>
+
+          
+        </div>
+     
+
+      </div>
+      {% endif %}
+
+      {% endfor %}
+
+    </div>
+    <!--Grid row-->
+
+      
+  </section>
+  <!--Section: Products v.3-->
+
+  {% block js%}
+  
+  <script type="text/javascript">
+    
+    console.log("moin")
+    $(document).ready(function(){
+    $('#arsch').slick({
+        dots: true,
+        infinite: false,
+        variableWidth: true,
+        arrow:true,
+        centerMode: true,
+      }); },);
+  </script>
+  {% endblock%}

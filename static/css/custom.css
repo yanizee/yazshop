@@ -1,0 +1,198 @@
+
+body{
+    display:flex; 
+    flex-direction:column; 
+}
+#category_navbar{
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(223,153,117,1) 50%, rgba(255,255,255,1) 100%);
+    border-width: 3px 4px 3px 5px;
+    border-radius: 15% 15% 15% 15% / 25% 25% 25% 25%;
+    box-shadow: none;
+    margin-top: 3rem;
+    
+
+}
+
+#slider {
+    justify-content: center;
+    color: white;
+    font-family: "Lucida Handwriting", cursive;
+    
+}
+#footer{
+    background-color: #df98759c;
+    margin-top:auto; 
+}
+#footer2{
+    background-color: #df9975;
+}
+
+#packbutton{
+    color: #fff;
+    padding: 5%;
+    width: 9rem;
+    height: 8rem;
+    margin: 0 -10px;
+    mix-blend-mode: screen;
+
+    background: #f66;
+    border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
+
+
+}
+#beatbutton{
+    background: #f92;
+    border-radius: 80% 30% 50% 50%/50%;
+
+    color: #fff;
+    padding: 5%;
+    width: 9rem;
+    height: 9rem;
+    margin: 0 -10px;
+    mix-blend-mode: screen;
+}
+#beatbutton,#packbutton {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#beatbutton:hover,#packbutton:hover {
+    transform: scale(1.15);
+}
+#beatbutton:active,#packbutton:active {
+    transform: scale(1.15);
+}  
+
+
+#beatpage,#packbox{
+    font-size: 2.5rem;
+    
+
+    
+}
+
+
+#arsch img{
+    height: 250px;
+    width: 250px;
+}
+.slick-track
+{
+    display: flex !important;
+}
+
+#arsch
+{
+    height:100%;
+    transform: scale(0.8);
+    height: inherit !important;
+}
+
+/* audio {
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+    max-width: 100%;
+    
+} */
+audio:hover, audio:focus, audio:active
+{
+-webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+-webkit-transform: scale(1.05);
+-moz-transform: scale(1.05);
+transform: scale(1.05);
+}
+audio
+{
+-webkit-transition:all 0.5s linear;
+-moz-transition:all 0.5s linear;
+-o-transition:all 0.5s linear;
+transition:all 0.5s linear;
+-moz-box-shadow: 2px 2px 4px 0px #df9975;
+-webkit-box-shadow:  2px 2px 4px 0px #df9975;
+box-shadow: 2px 2px 4px 0px #df9975;
+-moz-border-radius:7px 7px 7px 7px ;
+-webkit-border-radius:7px 7px 7px 7px ;
+border-radius:7px 7px 7px 7px ;
+height: 30px;
+/* width: 100%; */
+max-width: 600px;
+}
+
+
+#add_to_cart_button{
+    background-color: #df9975!important;
+}
+
+#product_image img{
+    height: 250px!important;
+    width: 250px!important;
+}
+#beattabelle td{
+
+    vertical-align: middle;
+    
+}
+#beattabelle {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+
+#infos p {
+    font-family: "Lucida Handwriting", cursive;
+    padding: 1rem 3rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: black;
+    
+}
+
+
+#info1:hover {
+    transform: translateY(-10px) rotate(1deg);
+    transform: scale(1.2);
+  }
+#info2:hover {
+    transform: translateY(-10px) rotate(1deg);
+    transform: scale(1.2);
+    /* box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3); */
+  }
+#info3:hover {
+    transform: translateY(-10px) rotate(1deg);
+    transform: scale(1.2);
+    /* box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3); */
+  }
+
+
+#info1{
+    /* border-width: 3px 4px 3px 5px;
+    border-radius:95% 4% 92% 5%/4% 95% 6% 95%; */
+    transform: rotate(-5deg);
+    /* border: solid #df9975; */
+    /* border-color: #df9975; */
+    background: radial-gradient(ellipse closest-side, #df9975 10%, #df98757c, #df98752f 90%, white);
+}
+#info2{
+    width:350px;
+    /* border-width: 3px 3px 5px 5px;
+    border-radius:4% 95% 6% 95%/95% 4% 92% 5%; */
+    transform: rotate(-5deg);
+    /* border: solid #df9975;
+    border-color: #df9975; */
+    background: radial-gradient(ellipse closest-side,#df9975 10%, #df98757c, #df98752f 80%, white);
+  }
+#info3{
+    /* border-width: 5px 3px 3px 5px;
+    border-radius:95% 4% 97% 5%/4% 94% 3% 95%; */
+    transform: rotate(-5deg);
+    /* border: solid #df9975;
+    border-color: #df9975; */
+    background: radial-gradient(ellipse closest-side, #df9975 10%, #df98757c, #df98752f 70%, white);
+}

@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+  {%block content %}
+
+  {% comment %} {% include "main/carousel.html" %} {% endcomment %}
+
+  <!--Main layout-->
+  <main>
+    <div class="container">
+
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg mt-3 mb-5" id="categories">
+
+        <!-- Navbar brand -->
+        <span class="navbar-brand">Categories:</span>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+          aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+
+          <!-- Links -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">All
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Beats</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Packs</a>
+            </li>
+
+          </ul>
+
+          {% comment %} <div class="container" id="slider">
+            <form class="tabber">
+              <label for="t1" id="beatbutton">Beats</label>
+              <input id="t1" name="food" type="radio" checked>
+              <label for="t2" id="packbutton">Packs</label>
+              <input id="t2" name="food" type="radio">
+              <div class="blob"></div>
+            </form>
+          </div> {% endcomment %}
+
+
+          <!-- Links -->
+
+          {% comment %} <form class="form-inline">
+            <div class="md-form my-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+          </form> {% endcomment %}
+        </div>
+        <!-- Collapsible content -->
+
+      </nav>
+      <!--/.Navbar-->
+
+      <!--Section: Products v.3-->
+      <section class="text-center mb-4">
+
+        <!--Grid row-->
+        <div class="container" id="beatbox" style="padding-bottom:10rem">
+
+          <table class="table table-bordered" id="beattabelle">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name</th>
+                <th scope="col">Bpm</th>
+                <th scope="col">Key</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              {% for item in object_list %}
+              {% if item.beat.category == "Beat" %}
+              
+              <tr>     
+              {% comment %} <th scope="row"><a href="{{beat.get_absolute_url}}">{{beat.pk}}</a></th> {% endcomment %}
+              <td> <a href="{{item.get_absolute_url}}">{{item.title}}</a></td>
+              <td><a href="{{item.get_absolute_url}}">{{item.beat.bpm}}</a></td>
+              <td><a href="{{item.get_absolute_url}}">{{item.beat.key}}</a></td>
+              <td><audio controls autplay>
+                <source src="{{item.beat.file}}" type="audio/ogg"  autoplay="False"></audio></td>
+              <td><button data-product={{beat.pk}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to cart</button></td>
+            </tr>
+            
+            {% endif %}
+            {%endfor%} 
+          
+            </tbody>
+            </table>
+  
+        </div>
+      </section>
+      <!--Section: Products v.3-->
+
+      <!--Pagination-->
+      {% if is_paginated %}
+      <nav class="d-flex justify-content-center wow fadeIn">
+        <ul class="pagination pg-blue">
+
+          <!--Arrow left-->
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          {% endif %}
+
+          <li class="page-item active">
+            <a class="page-link" href="?page={{page_obj.number}}">{{page_obj.number}}
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+      <!--Pagination-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+  
+  <!--/.Footer-->
+
+{% endblock %}
