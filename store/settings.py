@@ -21,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--r$m*i_iqvkxe30af=qcidkq0&dyu)6r@b=iww3w+)50ku601&'
+with open(os.path.join(BASE_DIR,"secret_key.txt")) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,15 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     "crispy_forms",
-    "django_countries",
-    'mptt',
-    # "js_urls"
-    
-    
-]
-JS_URLS = (
-    'main:order-complete-page',
-)
+    "django_countries",]
 
 
 
