@@ -1,6 +1,0 @@
-pip install django
-pip install django-allauth
-pip install django-crispy-forms
-pip install django-countries
-pip install django-mptt
-    
